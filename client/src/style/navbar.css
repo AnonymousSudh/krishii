@@ -1,0 +1,126 @@
+.header{
+    /* border: 1px solid red; */
+    /* z-index: 1; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 100px;
+    height: 10vh;
+    /* background-color: #ff5ea2; */
+    box-shadow: 0px 10px 30px rgb(231, 231, 231);
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .logo img{
+    /* border: 1px solid purple; */
+    
+    width: 120px;
+    height: 72px;
+    margin-left: 30px;
+  }
+
+  .header_right{
+  /* border: 1px solid green; */
+  /* margin-right: -20rem; */
+  /* width: auto; */
+  
+  }
+
+  .header_right li a{
+  
+      /* border: 1px solid purple; */
+      padding: 0rem 2rem;
+      margin: 0rem 3rem;
+      font-weight: bold;
+      text-decoration: none;
+      text-transform: capitalize;
+  
+  }
+  
+
+  .header_right li a:hover{
+      color: #ff5ea2;
+  }
+
+  .nd_div{
+    /* background-color: #ff5ea2; */
+    display: flex;
+    margin-right: 3rem;
+
+  }
+
+.buy_sell{
+  /* border: 1px solid red; */
+  width: 10rem;
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+  /* margin-right: rem; */
+}
+.buy_sell button{
+
+  background: transparent;
+  width: 4rem;
+  height: 2rem;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  /* // responsive */
+  
+  @media screen and (max-width:768px) {
+   
+    .header{
+      
+      /* border: 1px solid red; */
+      display: flex;
+      align-items: center;
+  
+      justify-content: space-between;
+      margin: 0px 0px;
+      height: 10vh;
+    }
+  
+    .search_box{
+      display: block;
+  
+      margin-right: 0rem;
+      margin-left: -2rem;
+      width: 40%;
+    }
+    .search_box input{
+  
+      width: 100%;
+      height: 4.5vh;
+      font-size: large;
+      padding-left: 5px;
+      font-weight: 300;
+          
+  }
+    .header_right li a{
+      display: none;
+  
+  
+  }
+  .menu img {
+    display: block;
+    margin-right: 20px;
+    width: 40px;
+    height: 40px;
+  }
+  
+    
+}

@@ -1,0 +1,250 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.main_container{
+    display: flex;
+    background-image: url(../images/7.jpg); 
+    background-size: cover
+    /* background-attachment: ; */
+   
+
+    /* background-image: url(background.jpg); */
+}
+.welcome_back{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* padding-top: 500px; */
+    /* margin-top: -100px; */
+    /* border: 1px solid red; */
+    height: 100vh;
+    width: 50vw;
+
+
+
+
+
+}
+.st_page{
+    display: flex;
+    z-index: 8;
+}
+
+.nd_page{
+    z-index: 3;
+    /* display: none; */
+    opacity: 0   
+}
+
+.sign_up{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* border: 1px solid green; */
+    width: 50vw;
+    /* display: block; */
+    /* z-index: 666; */
+  
+
+
+
+}
+
+.item{
+    /* border: 2px solid blue; */
+    width: 90%;
+    height: 60%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* justify-content: center; */
+}
+.item2{
+    /* border: 2px solid blue; */
+
+    width: 70%;
+    height: 82%;
+
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.item h1{
+    text-transform: capitalize;
+    font-size: 7vh;
+
+}
+.item p{
+    font-size: 4vh;
+    padding-top: 30px;
+    margin-top: 40px;
+    text-align: center;
+}
+.item button{
+    /* padding-top: 40px; */
+    margin-top: 90px;
+    border-radius: 30px;
+    width: 20%;
+    height: 8%;
+    /* text-decoration: none; */
+}
+
+.item2 h1{
+    text-transform: capitalize;
+    margin-bottom: 40px;
+    font-size: 7vh;
+
+}
+.item2 input{
+    border: none;
+    border-bottom: 2px solid black;
+    margin-top: 9vh;
+    font-size: 2rem;
+    background-color: transparent;
+    /* font-size: 3vh; */
+    /* background-color: transparent; */
+
+}
+.item2 input::placeholder-shown{
+    font-size: 5vh;
+    /* display: flex; */
+    padding-left: 50;
+    
+    
+    
+    /* justify-content: center; */
+    /* align-items: center; */
+    
+}
+.item2 input::placeholder{
+    color: rgb(34, 34, 34);
+    padding-left: 5px;
+
+
+}
+/* .item2 input:placeholder */
+
+.item2 button{
+    margin-top: 10vh;
+    margin-left: 50%;
+    margin-right: 50%;
+
+    width: 20%;
+    height: 8%;
+}
+
+.nd_page{
+    position: absolute;
+
+
+}
+.main_container2{
+    display: flex;
+    /* flex-direction: co; */
+
+}
+.sign_in{
+    /* border: 1px solid red; */
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* display: none; */
+    /* position: absolute; */
+}
+
+/* .sign_in input{
+    border: none;
+    border-bottom: 1px;
+
+} */
+
+.item3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 1px solid red; */
+    width: 60%;
+    margin-top: 2rem;
+    height: 80%;
+
+
+}
+.item3 h1{
+    text-transform: capitalize;
+    font-size: 3rem;
+}
+.item3 input{
+    margin-top: 4rem;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 2rem;
+    background-color: transparent;
+}
+
+.item3 input:placeholder-shown{
+    font-size: 2rem;
+}
+
+.item3 input::placeholder{
+    color: rgb(34, 34, 34);
+    padding-left: 5px;
+
+}
+.item3 button{
+    margin-top: 5rem;
+    width: 20%;
+    height: 7%;
+}
+
+
+.hlo_friend{
+    /* border: 10px solid green; */
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* display: none; */
+
+    /* position: absolute; */
+}
+
+.item4{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    /* width: ; */
+    height: 60%;
+    width: 70%;
+    /* border: 1px solid red; */
+}
+
+.item4 h1{  
+    text-transform: capitalize;
+    font-size: 3rem;
+}
+.item4 p{
+    font-size: 1.4rem;
+    margin-top: 2rem;
+}
+.item4 button{
+    width: 20%;
+    height: 7%;
+    margin-top: 4rem;
+}
+
+/* .nd_page{
+
+} */
+
+

@@ -1,0 +1,13 @@
+.main_divv{
+    background-image: url(../images/1.jpg);
+    /* background-position: cover; */
+    background-size: cover;
+    /* border: 1px solid red; */
+    width: 80vw;
+    height: 90vh;
+}
+.sell_crop_div_at_home_jsx{
+    display: none;
+    /* border: 10px solid rgb(11, 180, 53); */
+
+}
