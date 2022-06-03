@@ -13,8 +13,8 @@ const Buy_crops = () => {
 
   const buycrops = async (e) => {
 
-    const crop_name = document.getElementById("crop_name").value;
-    console.log(crop_name);
+    // const crop_name = document.getElementById("crop_name").value;
+    // console.log(crop_name);
 
     try {
       const res = await fetch('/Buy_crops', {
@@ -25,27 +25,36 @@ const Buy_crops = () => {
         }
       });
 
+      const ress = await fetch('/Buy_crops2', {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-type": "application/json"
+        }
+      });
+
+
       const data = await res.json();
-      // console.log(data.cropname);
+      console.log(data.cropname);
       getcrop_data(data.cropname);
 
 
 
-      if (crop_name) {
+      // if (2==3) {
 
-        // console.log(crop_name);
+      //   // console.log(crop_name);
 
-        const response = await fetch("/Buy_crops", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
+      //   const response = await fetch("/Buy_crops", {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json"
 
-          },
-          body: JSON.stringify({
-            crop_name
-          })
-        });
-      }
+      //     },
+      //     body: JSON.stringify({
+      //       crop_name
+      //     })
+      //   });
+      // }
       // document.getElementsByClassName("showdata")[0].innerHTML = data[9].crop_name
     }
     catch (error) {

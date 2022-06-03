@@ -11,28 +11,30 @@ const loginSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-
+    otp:{
+        type:Number
+    },
     imageuri:{
-        type:String,
+        type:String
         // required:true
     },
     google_token:{
         type:String
 
-    }
+    },
     // tokenn:{
     //     type:String,
     // },
-    // phoneno:{
-    //     type:Number,
-    //     require:true
-    // },
-    // password:{
-    //     type:String,
-    //     required:true
-    // },
-    // address:String,
-    //     // required:tru,
+    phoneno:{
+        type:Number,
+        // require:true
+    },
+    password:{
+        type:String,
+        // required:true
+    },
+    address:String,
+        // required:tru,
     
     // tokens:[
     //     {

@@ -1,8 +1,157 @@
-import React from 'react';
+import React, { useState } from 'react';
+// import useState from 
+// const nodemailer = require("nodemailer");
 
 function Signup() {
-  return <>
-  <h1>hello</h1>
+
+    const [user, setuser] = useState({
+        name: "", email: "", password: "", phoneno: "", address: ""
+    });
+    const { name, email, password, phoneno, address } = user;
+
+    const [otp , setotp] = useState("");
+
+    // const typevalue=(e)=>{
+    //     console.log(e.target.value);
+    //     setuser([address]:e.target.value)
+
+    // }
+
+
+    const typevalue = (event) => {
+        let namee, value;
+
+        // event.target will get that value and store in name/ value  variable
+        namee = event.target.name
+        value = event.target.value
+
+        setuser({ ...user, [namee]: value })
+    }
+    const send_data = async (event) => {
+        event.preventDefault();
+        const res = await fetch("/signup_email", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+
+            },
+            body: JSON.stringify({
+                name,email, password, address, phoneno
+            })
+        });
+
+        console.log(res.status);
+
+        if (res.status === 400) {
+            alert("enter all the details")
+        }
+
+        if (res.status === 422) {
+            alert("email already exist ")
+        }
+
+        if (res.status === 201) {
+
+            alert("enter your otp now")
+
+
+        }
+      
+    }
+
+    const validate_data = async(event)=>{
+        event.preventDefault();
+        const res = await fetch("/validate_data", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+
+            },
+            body: JSON.stringify({
+                otp
+            })
+        });
+        if(res.status ==201){
+            alert("you have been succesfully login");
+        }
+        if(res.status == 401 ){
+            alert("wrong otp")
+        }
+    }
+   
+
+
+    return (
+        <>
+
+            <div className="sign_up">
+                <div className="item2">
+
+                    <form action="post">
+                        <input type="text" name="name" id="name" value={user.name} onChange={typevalue} placeholder="Name" required /><br />
+
+                        <input type="email" name="email" id="email" value={user.email} onChange={typevalue} placeholder="Email" /><br />
+
+                        <input type="number" name="otp" id="otp" value={otp} onChange={(e)=>{setotp(e.target.value)}} placeholder="otp" /><br />
+
+                        <input type="password" name="password" id="password" value={user.password} onChange={typevalue} placeholder="Password" />
+
+                        <input type="number" name="phoneno" id="phoneno" value={user.phoneno} onChange={typevalue} placeholder="Mobile" />
+
+                        <input type="text" name="address" id="address" value={user.address} onChange={typevalue} placeholder="address" />
+                        <br />
+                        <button onClick={send_data}> signup</button>
+                        <button onClick={validate_data}> send otp </button>
+
+
+                    </form>
+
+                </div>
+
+
+            </div>
+        </>
+    )
+}
+
+export default Signup;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {/*     
               <div className='st_page'>
                 <div className="welcome_back">
@@ -35,8 +184,8 @@ function Signup() {
 
                 </div>
             </div> */}
-  
-  </>;
-}
 
-export default Signup;
+// </>;
+// }
+
+// export default Signup;

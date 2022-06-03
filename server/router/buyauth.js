@@ -10,7 +10,7 @@ router.get('/Buy_crops', async (req, res) => {
 
     try {
         const distinct_crop = await sellcrop.distinct("crop_name")
-
+        console.log(distinct_crop);
         const cropData = await sellcrop.find();
         var all_data = {
             cropname:distinct_crop,
@@ -33,3 +33,5 @@ router.post('/Buy_crops', async(req,res)=>{
     console.log("crop_name form post ");
     console.log(crop_name);
 })
+
+module.exports= router;

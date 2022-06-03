@@ -7,6 +7,7 @@ import Goverment_plan from "./components/Goverment_plan";
 import Calender_menu from "./components/Calender_menu";
 import Sell_crops from "./components/Sell_crops";
 import Buy_crops from "./components/Buy_crops";
+import signup from "./login/Signup"
 
 import './style/login.css'
 import './style/navbar.css'
@@ -28,6 +29,7 @@ function App() {
         <Route exact path={"/Buy_crops"} component={Buy_crops}/>
         <Route exact path={"/Enter_details"} component={extra_information}/>
         <Route exact path={"/adminpanel"} component={adminpanel}/>
+        <Route exact path={"/signup_email"} component={signup}/>
 
 
 

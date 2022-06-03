@@ -8,15 +8,17 @@ import GoogleLogin from 'react-google-login';
 const Login = () => {
     // const navigate = useNavigate();
     const history = useHistory();
+
     const [user, setUser] = useState({
         name: "", email: "", password: "", phoneno: "", address: ""
     });
+    
+    const [login_email, setemail] = useState("");
+    const [login_password, setpassword] = useState("");
 
     // const [login,setlogin]= useState({
     //     login_email:"",login_password:""
     // });
-    const [login_email, setemail] = useState("");
-    const [login_password, setpassword] = useState("");
 
     // we do this so that we able to write on the box of name/email/password/ phoneno whaenever any change in box happen means we type any word this function trigger and take that value and store in the state
     const responseGoogle = async(response) => {
@@ -59,6 +61,8 @@ const Login = () => {
         setUser({ ...user, [name]: value })
     }
 
+
+
     // this function call when we click post/register button-- we get all the value in a varibale we fetch the page .. adn set all its attritubtes like method/header/body and send all the data in a string form to the backend 
     const send_data = async (event) => {
         event.preventDefault();
@@ -74,33 +78,31 @@ const Login = () => {
         // step=> x+2 = we post all the data at server and server will post all the data to backend (in auth.js file at server folder) and check for all the validataion(if any -> we perform all the validataion at auth.js file in server folder) using post method and get the respose code using res variable and perform operation.
 
 
-    //     const res = await fetch("/signup", {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json"
+        // const res = await fetch("/signup", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
 
-    //         },
-    //         body: JSON.stringify({
-    //             name, email, password, address, phoneno
-    //         })
-    //     });
+        //     },
+        //     body: JSON.stringify({
+        //         name, email, password, address, phoneno
+        //     })
+        // });
 
-    //     console.log(res.status);
+        // console.log(res.status);
 
-    //     if (res.status === 400) {
-    //         alert("enter all the details")
-    //     }
+        // if (res.status === 400) {
+        //     alert("enter all the details")
+        // }
 
-    //     if (res.status === 422) {
-    //         alert("email already exist ")
-    //     }
+        // if (res.status === 422) {
+        //     alert("email already exist ")
+        // }
 
-    //     if (res.status === 200) {
-    //         alert("succesfully login")
-    //     }
-    // }
-
-
+        // if (res.status === 200) {
+        //     alert("succesfully login")
+        // }
+    }
 
 
 
@@ -112,7 +114,9 @@ const Login = () => {
 
 
 
-    //          --------------------------------->      login details  ---------------------------->
+
+
+    //       --------------------------------->      login details  ---------------------------->
 
     // getting all the value in the box 
 
@@ -123,7 +127,7 @@ const Login = () => {
     //     // setlogin({...login,[login_email]:login_password})
     // }
 
-    }
+    
 
     const login_user = async (event) => {
         // const {login_email,login_password} = login
