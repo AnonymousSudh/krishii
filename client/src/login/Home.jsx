@@ -51,6 +51,7 @@ function Home() {
         <Right_panel />
         <div className='main_divv'>
           <h1>hello this is home page</h1>
+          <input type="password" name="password" placeholder="Password" />
 
 
           {/* <GoogleLogout

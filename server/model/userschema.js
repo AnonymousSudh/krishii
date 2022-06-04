@@ -36,32 +36,32 @@ const loginSchema = new mongoose.Schema({
     address:String,
         // required:tru,
     
-    // tokens:[
-    //     {
-    //         token:{
+    tokens:[
+        {
+            token:{
 
-    //             type:String,
-    //             required:true
-    //         }
-    //     }
-    // ]
+                type:String,
+                required:true
+            }
+        }
+    ]
 })
 
-//generting a token
-// loginSchema.methods.generateAuthToken = async function(){
-//     try{
+// generting a token
+loginSchema.methods.generateAuthToken = async function(){
+    try{
         
-//         let token = jwt.sign({_id:this._id} , process.env.SECRET_KEY); // jwt.sign is used to generate token
-//         // console.log("this is token again from userschema ");
-//         // console.log(token);
+        let token = jwt.sign({_id:this._id} , process.env.SECRET_KEY); // jwt.sign is used to generate token
+        // console.log("this is token again from userschema ");
+        // console.log(token);
 
-//         this.tokens = this.tokens.concat({token:token}) 
-//         await this.save();  // this will save the token to the database 
-//         return token;
-//     }catch (err){ 
-//         console.log(err);
-//     }
-// }
+        this.tokens = this.tokens.concat({token:token}) 
+        await this.save();  // this will save the token to the database 
+        return token;
+    }catch (err){ 
+        console.log(err);
+    }
+}
 
 
 

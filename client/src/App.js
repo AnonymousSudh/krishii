@@ -14,6 +14,7 @@ import './style/navbar.css'
 import Signup from './login/Signup'
 import extra_information from "./components/extra_information";
 import adminpanel from "./components/adminpanel";
+import enterotp from "./login/Enterotp";
 
 function App() {
   return (
@@ -30,8 +31,7 @@ function App() {
         <Route exact path={"/Enter_details"} component={extra_information}/>
         <Route exact path={"/adminpanel"} component={adminpanel}/>
         <Route exact path={"/signup_email"} component={signup}/>
-
-
+        <Route exact path={"/enterotp"} component={enterotp}/>
 
       </Switch>
     

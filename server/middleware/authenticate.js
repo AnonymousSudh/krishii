@@ -7,25 +7,26 @@ const Authenticate = async (req, res, next) => {
     try {
 
 
-        const goole_token = req.cookies.google_token;
-        const google_user = await User.findOne({ google_token: goole_token });
-        req.rootUser = google_user;
-        next();
+        // const goole_token = req.cookies.google_token;``
+        // const google_user = await User.findOne({ google_token: goole_token });
+        // req.rootUser = google_user;
+        // next();
 
 
 
 
-        // const token = req.cookies.jwtoken;
-        // const verifyToken = jwt.verify(token, process.env.SECRET_KEY);
-        // const rootUser = await User.findOne({ _id: verifyToken._id, "tokens.token": token });// here we match the token with all the database and "rootuser" willl have the specific user data
+        const token = req.cookies.jwtoken;
+        const verifyToken = jwt.verify(token, process.env.SECRET_KEY);
+        const rootUser = await User.findOne({ _id: verifyToken._id, "tokens.token": token });// here we match the token with all the database and "rootuser" willl have the specific user data
         // const token = req.cookies.jwtoken;
         // console.log(token);
         // const verifyToken = jwt.verify(token, process.env.SECRET_KEY);
         // console.log("this is jwt token");
-        // console.log(verifyToken);
+        console.log(verifyToken);
+        // console.log(rootUser);
 
-        // req.rootUser = google_user;
-        // next();
+        req.rootUser = rootUser;
+        next();
 
 
 

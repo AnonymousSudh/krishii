@@ -14,6 +14,8 @@ app.use(express.json());
 
 app.use(require("./router/auth"));
 app.use(require("./router/sellauth"));
+app.use(require("./router/buyauth"))
+app.use(require("./router/signupauth"))
 
 // const s = require("../client/src/components/Sell_crops")
 
