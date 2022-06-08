@@ -89,12 +89,12 @@ function Signup() {
 
     return (
         <>
-        
-        <div className='main-head'>
-            <div className="login-box">
+        <div className='main'>
+        <div className='main_header'>
+            <div className="login_box">
                 <div className="left">
 
-                    <h1>Sign up</h1>
+                    <h1 className='header1'>Sign up</h1>
 
                     <form action="post">
                         <input type="text" name="name" id="name" value={user.name} onChange={typevalue} placeholder="Name" required /><br />
@@ -105,13 +105,12 @@ function Signup() {
 
                         <input type="password" name="password" id="password" value={user.password} onChange={typevalue} placeholder="Password" />
 
-                        <input type="number" name="phoneno" id="phoneno" value={user.phoneno} onChange={typevalue} placeholder="Mobile" />
+                        <input type="text" name="phoneno" id="phoneno" value={user.phoneno} onChange={typevalue} placeholder="Mobile" />
 
-                        <input type="text" name="address" id="address" value={user.address} onChange={typevalue} placeholder="address" />
+                        <input type="text" name="address" id="address" value={user.address} onChange={typevalue} placeholder="Address" />
                         <br />
-                        <button onClick={send_data}> signup</button>
+                        <button className='submit' onClick={send_data}> sign up</button>
                         {/* <button onClick={validate_data}> send otp </button> */}
-
 
 
 
@@ -122,10 +121,13 @@ function Signup() {
                     <span className="loginwith">Sign in with</span>
 
 
-                    <button className="social-signin google">Log in with Google+</button>
+
+
+                    <button className="social_signin google">Log in with Google+</button>
                 </div>
                 <div className="or">OR</div>
             </div>
+        </div>
         </div>
 
 
