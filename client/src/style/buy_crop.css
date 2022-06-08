@@ -1,5 +1,7 @@
 .dd{
     font-size: 60px;
+    background-color: rgb(6, 92, 92);
+    height: 100vh;
 }
 
 .showdata table, th, td{
