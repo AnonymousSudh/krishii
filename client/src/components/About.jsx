@@ -11,6 +11,7 @@ const About = () => {
     // console.log(req);
 
     const history = useHistory();
+    
     const [userData, setUserData] = useState({});
 
     const callAboutPage = async () => {
@@ -45,7 +46,6 @@ const About = () => {
         }
 
     }
-
 
 
     useEffect(() => {

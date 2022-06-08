@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-// import './login.css'
+
 import { useNavigate, useHistory } from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
-
+require("../style/login.css")
 
 
 const Login = () => {
@@ -101,11 +101,12 @@ const Login = () => {
     return (
         <>
 
+
             <div className='main-head'>
                 <div className="login-boxlog">
                     <div className="leftlog">
-                        <img className='logo' src={require('../images/logo.png')} alt="Logo" width="300" height="160" />
-                        <h1>Welcome to Krishi</h1>
+                        <img className='logo' src={require('../images/logo2.png')} alt="Logo" width="180" height="120" />
+                        <h1 className='header2'>Welcome to Krishi</h1>
 
                         <input type="text" name="username" placeholder="Email" value={login_email} onChange={(e) => setemail(e.target.value)} />
 
@@ -113,10 +114,10 @@ const Login = () => {
 
                         <input type="password" name="password" placeholder="Password" vlaue={login_password} onChange={(e) => setpassword(e.target.value)} />
 
-                        <button className='' onClick={login_user}>login</button>
+                        <button className='log_submit' onClick={login_user}>login</button>
 
-                        <p>--------or--------</p>
-                        <GoogleLogin
+                        <p className='Or_log'>--------or--------</p>
+                        <GoogleLogin className='google'
                             clientId="897223443783-1bqmg4ifk0id3mvenq5vccpp3b0mhmm1.apps.googleusercontent.com"
                             buttonText="Login"
                             onSuccess={responseGoogle}
@@ -129,8 +130,8 @@ const Login = () => {
                     <div className="rightlog">
                         <div className='newacc' style={{ color: '#228B22' }}>
                             <br />Are You New to <span style={{ color: '#32CD32' }}><br />Krishi?</span>
-                            <button className='newaccbt' onClick={open_signup}>Create Account</button>
-
+                            <br /><button className='newaccbt' onClick={open_signup}>Create Account</button>
+                         
                         </div>
 
                     </div>

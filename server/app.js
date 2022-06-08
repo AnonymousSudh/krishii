@@ -16,6 +16,7 @@ app.use(require("./router/auth"));
 app.use(require("./router/sellauth"));
 app.use(require("./router/buyauth"))
 app.use(require("./router/signupauth"))
+// app.use(require("./router/"))
 
 // const s = require("../client/src/components/Sell_crops")
 

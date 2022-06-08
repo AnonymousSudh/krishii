@@ -6,7 +6,7 @@ import '../style/weather.css'
 function Weather() {
     const history = useHistory();
 
-    const [city, setcity] = useState("");
+    const [cityy, setcityy] = useState("");
     // const [city, setcity] = useState("");
 
     
@@ -59,6 +59,7 @@ function Weather() {
     useEffect(() => {
         // getcityfromserver();
         calAboutPage();
+        // city[];
         // fetch_data();
     })
 
@@ -66,7 +67,7 @@ function Weather() {
 
     return (<>
         <div className='weather'>
-            <input type="text" className='city_name' value={city} onChange={(e) => setcity(e.target.value)} /><br />
+            <input type="text" className='city_name' value={cityy} onChange={(e) => setcityy(e.target.value)} /><br />
             <div className='temp_box'>
 
                 <h1 className='temp'>{ }</h1>

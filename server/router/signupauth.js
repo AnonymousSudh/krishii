@@ -26,20 +26,17 @@ router.post('/signup_email', async (req, res) => {
         }
 
 
-        else if (!pre_email) {
-
-            
-       
+        else if (!pre_email) {      
 
             const email_login_data = await userList({
                 name,email, password, address, phoneno, otp
             }).save()
 
-            res.cookie("google_token", google_token, { // here we storing our token in cookies
-                expires: new Date(Date.now() + 25892000000),
-                httpOnly: true
+            // res.cookie("google_token", google_token, { // here we storing our token in cookies
+            //     expires: new Date(Date.now() + 25892000000),
+            //     httpOnly: true
     
-            })
+            // })
 
             async function main() {
 
@@ -86,6 +83,16 @@ router.post('/validate_otp' ,async(req,res)=>{
         const validate = await userList.findOne({otp:otp});
 
         if(validate){
+            
+            // const email_login_data = await userList({
+            //     name,email, password, address, phoneno, otp
+            // }).save()
+
+            // res.cookie("google_token", google_token, { // here we storing our token in cookies
+            //     expires: new Date(Date.now() + 25892000000),
+            //     httpOnly: true
+    
+            // })
             res.status(201).send();
         
         }
@@ -100,4 +107,8 @@ router.post('/validate_otp' ,async(req,res)=>{
  
     
 })
+
+
+
+
 module.exports = router;

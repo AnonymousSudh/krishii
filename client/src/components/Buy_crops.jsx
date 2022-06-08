@@ -7,34 +7,50 @@ const Buy_crops = () => {
   const [crop_data, getcrop_data] = useState([]);
   const [variety_data, getvariety_dataa] = useState([]);
 
-  const show_data = () => {
+  const crop_value = async() => {
+
+    const crop_name = document.getElementById("crop_name").value;
+    // console.log(valuee);
+
+    const sendcropvalue = await fetch('./crop_value',{
+      method:"POST",
+      headers:{
+        "Content-Type": "application/json"
+
+      },
+      body: JSON.stringify({
+        crop_name
+      })
+    });
+
+    
+   
 
   }
 
-  const buycrops = async (e) => {
+  const fetch_distinct_crops = async (e) => {
 
-    // const crop_name = document.getElementById("crop_name").value;
-    // console.log(crop_name);
 
     try {
-      const res = await fetch('/Buy_crops', {
+      const crop_name = await fetch('/Buy_crops', {
         method: "GET",
         headers: {
           Accept: "application/json",
           "Content-type": "application/json"
-        }
+        },
+        credentials: "include"
       });
 
-      const ress = await fetch('/Buy_crops2', {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-type": "application/json"
-        }
-      });
+      // const ress = await fetch('/Buy_crops2', {
+      //   method: "GET",
+      //   headers: {
+      //     Accept: "application/json",
+      //     "Content-type": "application/json"
+      //   }
+      // });
 
 
-      const data = await res.json();
+      const data = await crop_name.json();
       console.log(data.cropname);
       getcrop_data(data.cropname);
 
@@ -63,23 +79,25 @@ const Buy_crops = () => {
   }
 
   useEffect(() => {
-    buycrops();
+    fetch_distinct_crops();
   }, []);
 
   return (
     <>
-      <div className='dd'>Buy_crops</div>
+      <div className='dd'>
+
+        <h1>Buy_crops</h1>
 
       <div className="select_all_crop">
         <div className="select_crop">
 
-          <label htmlFor="crop">crop</label>
-          <select name="crop" id="crop_name">
+          <label htmlFor="crop">crop </label>
+          <select name="crop" id="crop_name" onChange={crop_value}>
             {crop_data.map((val) => {
               return (
                 <>
                   <option disabled hidden selected>select the crop name</option>
-                  <option value={val}>{val}</option>
+                  <option value={val} >{val}</option>
                 </>
               )
             })}
@@ -87,17 +105,18 @@ const Buy_crops = () => {
         </div>
 
         <div className="select_variety">
-          <label htmlFor="variety">select variety</label>
+          <label htmlFor="variety">select variety </label>
 
-          {/* <select name="variety" id="variety_name">
-            { }
-            <option disabled hidden selected> choose varity</option>
-            <option value={ }></option>
-          </select> */}
+          <select name="variety" id="variety_name">
+
+            <option disabled hidden selected> choose varity </option>
+            <option>hh</option>
+          </select>
         </div>
       </div>
 
-      <button className='showdata' onClick={buycrops}>show data</button>
+                </div>
+      {/* <button className='showdata' onClick={fetchcrops}>show data</button> */}
       {/* <div className='showDataa'>
         <div className="tabledata">
 
