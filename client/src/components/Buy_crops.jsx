@@ -17,7 +17,7 @@ const Buy_crops = () => {
     // console.log(crop_name);
 
     try {
-      const res = await fetch('/Buy_crops', {
+      const crop_name = await fetch('/Buy_crops', {
         method: "GET",
         headers: {
           Accept: "application/json",
@@ -34,7 +34,7 @@ const Buy_crops = () => {
       });
 
 
-      const data = await res.json();
+      const data = await crop_name.json();
       console.log(data.cropname);
       getcrop_data(data.cropname);
 

@@ -8,10 +8,12 @@ import Calender_menu from "./components/Calender_menu";
 import Sell_crops from "./components/Sell_crops";
 import Buy_crops from "./components/Buy_crops";
 import signup from "./login/Signup"
+import logout from "./components/Logout"
 
 import './style/login.css'
-import './style/navbar.css'
+// import './style/navbar.css'
 import Signup from './login/Signup'
+
 import extra_information from "./components/extra_information";
 import adminpanel from "./components/adminpanel";
 import enterotp from "./login/Enterotp";
@@ -32,6 +34,7 @@ function App() {
         <Route exact path={"/adminpanel"} component={adminpanel}/>
         <Route exact path={"/signup_email"} component={signup}/>
         <Route exact path={"/enterotp"} component={enterotp}/>
+        <Route exact path="/logout" component={logout}/>
 
       </Switch>
     

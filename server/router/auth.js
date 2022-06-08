@@ -240,6 +240,7 @@ router.post('/Enter_details', authenticate, async (req, res) => {
 })
 
 router.get('/about', authenticate, (req, res) => {
+    
 
     console.log(req.rootUser);
     res.send(req.rootUser);
@@ -264,4 +265,14 @@ router.get('/weather',authenticate, async (req, res) => {
 
 })
 
+
+
+router.get('/logout' ,(req,res)=>{
+
+    res.clearCookie('jwtoken', {path:'/'});
+    res.clearCookie('google_token', {path:'/'});
+    res.status(200).send();
+
+
+})
 module.exports = router;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, Route, Switch,useHistory } from "react-router-dom";
 // import Sell_crops from './Sell_crops';
+import '../style/navbar.css'
 
 function Navbar() {
     const history = useHistory();
@@ -20,6 +21,11 @@ function Navbar() {
 
     }
 
+    // const logout =(req,res)=>{
+    //     console.log(req.cookies.jwtoken);
+        
+    // }
+
 
 
 
@@ -35,6 +41,7 @@ function Navbar() {
                 <div className="nd_div">
 
 
+
                     <div className="header_right">
                         <li style={{ listStyle: "none" }}>
                             <NavLink exact to="/home"> Home </NavLink>
@@ -46,9 +53,14 @@ function Navbar() {
 
 
                     <div className="buy_sell">
-                        <NavLink exact to="/Buy_crops"> <button className='buy'>Buy</button> </NavLink>
+                        <NavLink exact to="/Buy_crops"> <button className='buy'>Buy</button> 
+                        </NavLink>
                         <button className='sell' onClick={open_sell_dialog}>Sell</button>
+                    
+                    </div>
 
+                    <div className="logout">
+                        <NavLink exact to="./logout"><button classname="logout">logout</button></NavLink>
                     </div>
 
                 </div>

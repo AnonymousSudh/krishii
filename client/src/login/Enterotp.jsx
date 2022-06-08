@@ -30,6 +30,7 @@ function Enterotp() {
     }
 
     return (
+        
         <>
         <h1>helllo</h1>
         <div className="otpdiv">
