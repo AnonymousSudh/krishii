@@ -1,7 +1,7 @@
 import React from 'react'
 import '../style/right_panel.css'
 import Calender_menu from './Calender_menu';
-import Weather from './Weather';
+ import Weather from './Weather';
 
 function Right_panel() {
 
@@ -71,7 +71,7 @@ function Right_panel() {
         <>
             <div className="right_panel_div">
 
-                <Weather />
+                {/* <Weather /> */}
                 {/* <Calender_menu /> */}
             
             </div>

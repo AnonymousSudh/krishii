@@ -10,21 +10,28 @@ function Home() {
   
 
   return (
-    <div className='home_div_main'>
-      <div className="home_ka_div">
-        <div className="sell_crop_div_at_home_jsx">
-          <Sell_crops />
-        </div>
-
-        <Navbar />
-        <Right_panel />
+    // <div className='home_div_main'>
+    //   <div className="home_ka_div">
+    //     <div className="sell_crop_div_at_home_jsx">
+    //       <Sell_crops />
+    //     </div>
+<>
+         <Navbar />
+    {/* //     <Right_panel /> */}
+    <div className='hmain'>
         <div className='main_divv'>
-          <h1>hello this is home page</h1>
-
-
+           <h1>Buy or Sell crop sitting at your home</h1>
+           <p>With easy interface</p>
         </div>
-      </div>
-    </div>)
+        <div className='buy_sell'>
+          <div className='sell'>Sell</div>
+          <div className='buy'>Buy</div>
+        </div>
+        </div>
+        </>
+    //   </div>
+    // </div>
+    )
 }
 
 export default Home;
