@@ -10,6 +10,7 @@ function Home() {
   
 
   return (
+ shriya
     // <div className='home_div_main'>
     //   <div className="home_ka_div">
     //     <div className="sell_crop_div_at_home_jsx">
@@ -31,6 +32,7 @@ function Home() {
         </>
     //   </div>
     // </div>
+
     )
 }
 

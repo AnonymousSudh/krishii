@@ -10,7 +10,7 @@ router.get('/Buy_crops', async (req, res) => {
 
     try {
         const distinct_crop = await sellcrop.distinct("crop_name")
-        console.log(distinct_crop);
+        // console.log(distinct_crop);
         const cropData = await sellcrop.find();
         var all_data = {
             cropname: distinct_crop,
@@ -40,18 +40,17 @@ router.post('/crop_value', async (req, res) => {
         // console.log(crop_name);             // { crop_name: 'ssss' }
         // console.log(crop_name.crop_name);  // wheat
 
-
         const data = await sellcrop.find({ crop_name: crop_name.crop_name })
         // console.log(data);
         if (data) {
-            res.status(201);
+            res.status(201).send(data)
 
 
-            data.map((val) => {
-                // (val.variety)
-                res.send(val.variety)
+            // data.map((val) => {
+            //     console.log(val.variety);
+            //     // res.send(val.variety)
 
-            })
+            // })
         }
 
     } catch (error) {

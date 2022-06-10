@@ -52,7 +52,7 @@ router.post('/signup_email', async (req, res) => {
                 const options = {
                     from: process.env.MAIL_ACC,
                     to: `${email}`,
-                    subject: "Your OPT For Krishi",
+                    subject: "Your OTP For Krishi",
                     text: `Dear valuable Krishi, ${otp} is your OTP`
             
                 }
@@ -78,7 +78,7 @@ router.post('/signup_email', async (req, res) => {
 })
 
 router.post('/validate_otp' ,async(req,res)=>{
-    const otp = req.body.otp;
+    const otp = req.body.otpvlaue;
      try {
         const validate = await userList.findOne({otp:otp});
 

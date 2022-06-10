@@ -5,6 +5,7 @@ function Logout() {
 
     const history = useHistory();
 
+
     const logoutpage = async ()=>{
         try {
 

@@ -31,7 +31,8 @@
     }
     .otp_field input{
         width: 24px;
-        font-size: 32px;
+        height: 30px;
+        font-size: 25px;
         padding: 10px;
         text-align: center;
         border-radius: 5px;
@@ -47,3 +48,9 @@
         border:2px solid #a527ff;
         box-shadow: 0 0 2px 2px #a527ff6a;
     }
+
+.otp_field input::-webkit-outer-spin-button,
+.otp_field input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

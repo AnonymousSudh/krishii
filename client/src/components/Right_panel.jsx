@@ -8,26 +8,6 @@ function Right_panel() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // const fetch_weather = () => {
     //     navigator.geolocation.getCurrentPosition(success);
 
