@@ -28,8 +28,8 @@ const About = () => {
             });
 
             const data = await res.json();
-            console.log("this is data at about us");
-            console.log(data)
+            // console.log("this is data at about us");
+            // console.log(data)
             setUserData(data);
 
             // console.log(userData.name);

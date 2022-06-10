@@ -5,6 +5,7 @@ function Logout() {
 
     const history = useHistory();
 
+
     const logoutpage = async ()=>{
         try {
 
@@ -19,7 +20,7 @@ function Logout() {
         // console.log(res.status);
               if(res.status ===200){
                 // alert("hello")
-                history.push('/home')
+                history.push('/')
     
             }
 

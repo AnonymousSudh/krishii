@@ -8,26 +8,6 @@ function Right_panel() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // const fetch_weather = () => {
     //     navigator.geolocation.getCurrentPosition(success);
 
@@ -71,7 +51,7 @@ function Right_panel() {
         <>
             <div className="right_panel_div">
 
-                <Weather />
+                {/* <Weather /> */}
                 {/* <Calender_menu /> */}
             
             </div>

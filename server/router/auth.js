@@ -272,6 +272,7 @@ router.get('/logout' ,(req,res)=>{
     res.clearCookie('jwtoken', {path:'/'});
     res.clearCookie('google_token', {path:'/'});
     res.status(200).send();
+    
 
 
 })
