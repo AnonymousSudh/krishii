@@ -12,7 +12,7 @@ const loginSchema = new mongoose.Schema({
         required:true
     },
     otp:{
-        type:Number
+        type:String
     },
     imageuri:{
         type:String

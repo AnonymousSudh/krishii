@@ -45,6 +45,10 @@ function Signup() {
                 name, email, password, address, phoneno
             })
         });
+        localStorage.setItem('password', password);
+        localStorage.setItem('email',email);
+        // localStorage.setItem('address', password)
+
 
         console.log(res.status);
 

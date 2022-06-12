@@ -18,6 +18,9 @@ function Enterotp() {
     const validate_otp = async (event) => {
         const otpvlaue = otp1 + otp2 + otp3 + otp4;
         console.log(otpvlaue);
+        const password = localStorage.getItem('password')
+        const email = localStorage.getItem('email')
+        // console.log(password);
         event.preventDefault();
         const res = await fetch("/validate_otp", {
             method: "POST",
@@ -26,13 +29,15 @@ function Enterotp() {
 
             },
             body: JSON.stringify({
-                otpvlaue
+                otpvlaue,password
             })
         });
         if (res.status == 201) {
 
             alert("you have been succesfully login");
-            history.push("./home")
+            localStorage.removeItem('password');
+            localStorage.removeItem('email')
+            history.push("/")
         }
         if (res.status == 401) {
             alert("wrong otp")
