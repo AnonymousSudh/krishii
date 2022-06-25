@@ -68,7 +68,6 @@ router.post("/signup", async (req, res) => {
 
         return res.status(203).send();
 
-
     }
 
     if (pre_email) {
@@ -141,6 +140,7 @@ router.post("/signin", async (req, res) => {
 
 
         if (result) {
+            console.log(result._id);
             // const isMatch = await bcrypt.compare(password, userLogin.password)
             // console.log("hello 1");
             token = await result.generateAuthToken();
@@ -149,6 +149,13 @@ router.post("/signin", async (req, res) => {
             // console.log("hello 3");
 
             res.cookie("jwtoken", token, {
+                expires: new Date(Date.now() + 25892000000),
+                httpOnly: true
+
+
+            })
+            
+            res.cookie("userid", result._id, {
                 expires: new Date(Date.now() + 25892000000),
                 httpOnly: true
 
@@ -242,7 +249,7 @@ router.post('/Enter_details', authenticate, async (req, res) => {
 router.get('/about', authenticate, (req, res) => {
     
 
-    console.log(req.rootUser);
+    // console.log(req.rootUser);
     res.send(req.rootUser);
 
 })
@@ -258,6 +265,7 @@ router.get('/weather',authenticate, async (req, res) => {
     //     // const address = await userList.findOne(/);
     //     // console.log(address);
         res.status(200).send(address);
+
     // } catch (err) {
     //     console.log(err);
     // }
@@ -274,6 +282,10 @@ router.get('/logout' ,(req,res)=>{
     res.status(200).send();
     
 
+
+})
+
+router.get('/home',authenticate,(req,ress)=>{
 
 })
 module.exports = router;

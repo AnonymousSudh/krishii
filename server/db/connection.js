@@ -24,7 +24,7 @@ mongoose.adminn = mongoose.createConnection(db_admin,{
     // useFindAndModify: false
 
 })
-// // .then(()=>console.log("connected succesfully"))
+// .then(()=>console.log("connected succesfully"))
 // // .catch((err)=> console.log(err));
 
 module.exports =mongoose;

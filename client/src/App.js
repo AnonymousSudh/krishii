@@ -1,4 +1,5 @@
 import { Route, Switch } from "react-router-dom";
+// require("../config.env");
 import Home from './login/Home'
 import Login from './login/Login'
 import About from './components/About'
@@ -9,13 +10,14 @@ import Sell_crops from "./components/Sell_crops";
 import Buy_crops from "./components/Buy_crops";
 import signup from "./login/Signup"
 import logout from "./components/Logout"
+import Loading from "./components/Loading"
 
 import './style/login.css'
 // import './style/navbar.css'
 import Signup from './login/Signup'
 
 import extra_information from "./components/extra_information";
-import adminpanel from "./components/adminpanel";
+import Adminpanel from "./components/Adminpanel";
 import enterotp from "./login/Enterotp";
 
 function App() {
@@ -31,10 +33,11 @@ function App() {
         <Route exact path={"/Sell_crops"} component={Sell_crops}/>
         <Route exact path={"/Buy_crops"} component={Buy_crops}/>
         <Route exact path={"/Enter_details"} component={extra_information}/>
-        <Route exact path={"/adminpanel"} component={adminpanel}/>
+        <Route exact path={"/Adminpanel"} component={Adminpanel}/>
         <Route exact path={"/signup_email"} component={signup}/>
         <Route exact path={"/enterotp"} component={enterotp}/>
         <Route exact path="/logout" component={logout}/>
+        <Route exact path="/loading" component={Loading}/>
 
       </Switch>
     

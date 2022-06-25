@@ -51,7 +51,7 @@ function Right_panel() {
         <>
             <div className="right_panel_div">
 
-                {/* <Weather /> */}
+                <Weather />
                 {/* <Calender_menu /> */}
             
             </div>

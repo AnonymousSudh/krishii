@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import Loading from "../components/Loading";
 require("../style/signup.css")
 // import useState from 
 // const nodemailer = require("nodemailer");
@@ -31,10 +32,17 @@ function Signup() {
 
         setuser({ ...user, [namee]: value })
     }
+
     const send_data = async (event) => {
-
-
         event.preventDefault();
+
+  
+        // document.getElementsByClassName('')
+
+            document.getElementsByClassName('main')[0].style.display = "none"
+            document.getElementsByClassName('main_div_loading')[0].style.display = "block"
+        
+
         const res = await fetch("/signup_email", {
             method: "POST",
             headers: {
@@ -45,6 +53,10 @@ function Signup() {
                 name, email, password, address, phoneno
             })
         });
+        localStorage.setItem('password', password);
+        localStorage.setItem('email',email);
+        // localStorage.setItem('address', password)
+
 
         console.log(res.status);
 
@@ -57,12 +69,16 @@ function Signup() {
         }
 
         if (res.status == 201) {
+            // document.getElementsByClassName('loading')[0].style.display = "block"
 
             history.push("./enterotp");
 
 
-        }
+        }     
+    }
 
+    const trial =()=>{
+        alert("hello");
     }
 
     // const validate_data = async (event) => {
@@ -96,7 +112,7 @@ function Signup() {
 
                     <h1 className='header1'>Sign up</h1>
 
-                    <form action="post">
+                    <form action="post" onLoad={trial}>
                         <input type="text" name="name" id="name" value={user.name} onChange={typevalue} placeholder="Name" required /><br />
 
                         <input type="email" name="email" id="email" value={user.email} onChange={typevalue} placeholder="Email" /><br />
@@ -109,7 +125,7 @@ function Signup() {
 
                         <input type="text" name="address" id="address" value={user.address} onChange={typevalue} placeholder="Address" />
                         <br />
-                        <button className='submit' onClick={send_data}> sign up</button>
+                        <button className='submit' onClick={send_data} > sign up</button>
                         {/* <button onClick={validate_data}> send otp </button> */}
 
 
@@ -130,11 +146,7 @@ function Signup() {
         </div>
         </div>
 
-
-
-
-
-
+        <Loading />
 
 
         </>

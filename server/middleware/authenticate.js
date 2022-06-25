@@ -11,7 +11,7 @@ const Authenticate = async (req, res, next) => {
 
 
         const goole_token = req.cookies.google_token;
-        console.log(goole_token);
+        // console.log(goole_token);
         if(goole_token){
 
             const google_user = await User.findOne({ google_token: goole_token });
@@ -31,7 +31,7 @@ const Authenticate = async (req, res, next) => {
             // console.log(token);
             // const verifyToken = jwt.verify(token, process.env.SECRET_KEY);
             // console.log("this is jwt token");
-            console.log(verifyToken);
+            // console.log(verifyToken);
             // console.log(rootUser);
             
             req.rootUser = rootUser;

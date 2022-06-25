@@ -5,12 +5,21 @@ const nodemailer = require("nodemailer")
 
 
 router.post('/signup_email', async (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
 
     try {
         const { name, email, password, address, phoneno } = req.body;
         // generate random otp here 
-        const otp = Math.floor(Math.random() * 10000)
+        var otp2 = Math.floor(Math.random() * 10000);
+        var otp = otp2.toString();
+        const lengh= otp.length;
+
+        if(lengh ==3){
+
+            otp = "0"+otp
+        }
+        
+
         // userList.findOne({ email: login_email, password: login_password });
         const pre_email = await userList.findOne({ email: email });
  
@@ -25,12 +34,11 @@ router.post('/signup_email', async (req, res) => {
 
         }
 
-
         else if (!pre_email) {      
 
-            const email_login_data = await userList({
-                name,email, password, address, phoneno, otp
-            }).save()
+            // const email_login_data = await userList({
+            //     name,email, password, address, phoneno, otp
+            // }).save()
 
             // res.cookie("google_token", google_token, { // here we storing our token in cookies
             //     expires: new Date(Date.now() + 25892000000),
@@ -38,33 +46,51 @@ router.post('/signup_email', async (req, res) => {
     
             // })
 
-            async function main() {
+            // async function main() {
+                try {
 
-                // create reusable transporter object using the default SMTP transport
-                const transporter = nodemailer.createTransport({
-                    service: "hotmail",
-                    auth: {
-                        user: process.env.MAIL_ACC,
-                        pass: process.env.MAIL_PASS,
-                    },
-                });
+                    const transporter = nodemailer.createTransport({
+                        service: "hotmail",
+                        auth: {
+                            user: process.env.MAIL_ACC,
+                            pass: process.env.MAIL_PASS,
+                        },
+                    });
+    
+                    const options = {
+                        from: process.env.MAIL_ACC,
+                        to: `${email}`,
+                        subject: "Your OTP For Krishi",
+                        text: `Dear valuable Krishi, ${otp} is your OTP`
+                
+                    }
+    
+                    const info = await transporter.sendMail(options);
+                    
+                    console.log(info);
+                    if(info){
+                       
 
-                const options = {
-                    from: process.env.MAIL_ACC,
-                    to: `${email}`,
-                    subject: "Your OTP For Krishi",
-                    text: `Dear valuable Krishi, ${otp} is your OTP`
-            
+                        const email_login_data = await userList({
+                            otp,name,email,address,phoneno
+                        }).save();
+
+
+                        res.status(201).send();
+                    }
+    
+
+                } catch (error) {
+                    console.log(error);
+                    res.status(401).send();
+                    
                 }
 
-                const info = await transporter.sendMail(options);
-                console.log(info);
+                // create reusable transporter object using the default SMTP transport
+               
+            // }
 
-            }
 
-            main().catch(console.error);
-
-            res.status(201).send();
         }
 
 
@@ -79,14 +105,27 @@ router.post('/signup_email', async (req, res) => {
 
 router.post('/validate_otp' ,async(req,res)=>{
     const otp = req.body.otpvlaue;
+    const password = req.body.password;
      try {
         const validate = await userList.findOne({otp:otp});
+      
+        console.log(validate);
 
         if(validate){
+
+            // db.detail.update( { "Color": "white" }, { $unset: { "Model": " " }} )
+            const update = await userList.update(validate,
+                [
+                    {
+                        $set: {
+                          "otp": ""
+                        }
+                      },
+                    {
+                        "$addFields": { "password": password }
+                    }
+                ]);
             
-            // const email_login_data = await userList({
-            //     name,email, password, address, phoneno, otp
-            // }).save()
 
             // res.cookie("google_token", google_token, { // here we storing our token in cookies
             //     expires: new Date(Date.now() + 25892000000),
