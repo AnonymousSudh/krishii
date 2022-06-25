@@ -1,5 +1,5 @@
 .dd{
-    font-size: 60px;
+    font-size: 20px;
     background-color: rgb(6, 92, 92);
     height: 100vh;
 }
@@ -18,7 +18,7 @@ td{
 
 }
 .showDataa{
-    width: 100%;
+    width: 100vw;
     height: 80vh;
 
     /* border: 1px solid red; */
@@ -29,9 +29,9 @@ td{
 }
 .tabledata{
     /* border: 1px solid red; */
-    /* width: 100%; */
+    width: 100vw;
     /* display: flex; */
-    font-size: 40px
+    font-size: 20px
     /* justify-content: center;
     align-items: center;
     width: max-content; */

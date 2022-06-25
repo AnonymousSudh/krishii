@@ -62,7 +62,7 @@ loginSchema.methods.generateAuthToken = async function(){
         console.log(err);
     }
 }
-
+ 
 
 
 

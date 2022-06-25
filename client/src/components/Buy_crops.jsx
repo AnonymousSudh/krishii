@@ -5,6 +5,8 @@ import '../style/buy_crop.css'
 
 const Buy_crops =() => {
 
+  const[data,setdata]= useState([]);
+
   const getallselldata = async()=>{
 
     const res = await fetch('/getallcropdata',{
@@ -17,12 +19,15 @@ const Buy_crops =() => {
       Credential:"include"
       
     })
+    const data = await  res.json()
+    setdata(data);
+    console.log(data);
   }
 
 useEffect(()=>{
   getallselldata();
 
-})
+},[])
 
   
   return (
@@ -39,26 +44,28 @@ useEffect(()=>{
                 <th>Quantity</th>
                 <th>Price</th>
                 <th>seller name </th>
-                <th>contact</th>
+                <th>phone no</th>
+                <th>email</th>
 
               </tr>
 
-{/* 
-              {variety_dataa.map((val) => {
-                if (val.variety == exactdata) {
+
+              {data.map((val) => {
                   return (
                     <>
                       <tr>
-                        <td>{val.crop_name}</td>
-                        <td>{val.variety}</td>
+                        <td>{val.crop_name_id.crop_namee}</td>
+                        <td>{val.variety_id}</td>
                         <td>{val.quantity}</td>
                         <td>{val.price}</td>
-                        <td>{val.}</td>
+                        <td>{val.seller_id.name}</td>
+                        <td>{val.seller_id.phoneno}</td>
+                        <td>{val.seller_id.email}</td>
                       </tr>
                     </>
                   )
-                }
-              })} */}
+                
+              })}
 
 
             </table>
