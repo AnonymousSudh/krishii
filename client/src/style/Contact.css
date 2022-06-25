@@ -1,4 +1,4 @@
-.body-head{
+.cbody-head{
   display: flex;
    background-image: linear-gradient(to right top, #301ee6, #445cf2, #6b89f5, #9cb2f0, #d3d9e6);
    font-size: 16px;
@@ -6,7 +6,7 @@
    font-weight: 300;
  }
  
- .login-box {
+ .clogin-box {
    position: relative;
    margin: 5% auto;
    width: 1000px;
@@ -16,7 +16,7 @@
    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
  }
  
- .left {
+ .cleft {
    position: absolute;
    top: 0;
    left: 0;
@@ -33,8 +33,8 @@
  }
 
  
-/*  
- input[type="text"]
+ 
+ .cleft input[type="text"]
 {
    display: block;
  
@@ -56,14 +56,14 @@
    transition: 0.2s ease;
  }
  
- input[type="text"]:focus,
- input[type="password"]:focus {
+ .cleft input[type="text"]:focus,
+ .cleft  input[type="password"]:focus {
    border-bottom: 1px solid #b7dbeb;
    color: #b7dbeb;
    transition: 0.2s ease;
  }
  
- input[type="submit"] {
+ .cleft input[type="submit"] {
    margin-top: 38px;
    margin-left: 300px;
    width: 120px;
@@ -78,22 +78,22 @@
    cursor: pointer;
  }
  
- input[type="submit"]:hover,
- input[type="submit"]:focus {
+ .cleft input[type="submit"]:hover,
+ .cleft input[type="submit"]:focus {
    opacity: 0.8;
    box-shadow: 0 2px 4px rgb(255, 255, 255);
    transition: 0.1s ease;
  }
  
- input[type="submit"]:active {
+ .cleft input[type="submit"]:active {
    opacity: 1;
    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
    transition: 0.1s ease;
  }
  
  
-  */
- .right {
+  
+ .cright {
    position: absolute;
    top: 0;
    right: 0;
@@ -107,7 +107,7 @@
    border-radius: 0 30px 30px 0;
  }
  
- .right .right-box {
+ .cright .cright-box {
    display: block;
    margin-bottom: 100px;
    margin-top:100px;
@@ -115,7 +115,7 @@
    color: #384b96;
    text-align: center;
  }
- .right .right-box2 {
+ .cright .cright-box2 {
    display: block;
    margin-bottom: 100px;
    margin-top:100px;
@@ -124,17 +124,17 @@
    text-align: center;
  }
 
- .phone{
+ .cphone{
      margin-right: 55px;
      color: #DDD;
      
  }
- .email{
+ .cemail{
    color: #DDD;
  }
 
   
- .right .right-box1 {
+ .cright .cright-box1 {
    display: block;
    font-size: 15px;
    margin-right: 22%;

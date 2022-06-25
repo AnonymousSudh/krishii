@@ -15,5 +15,14 @@
   "bugs": {
     "url": "https://github.com/AnonymousSudh/krishii/issues"
   },
-  "homepage": "https://github.com/AnonymousSudh/krishii#readme"
+  "homepage": "https://github.com/AnonymousSudh/krishii#readme",
+  "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.8",
+    "@fortawesome/fontawesome-free-regular": "^5.0.13",
+    "@fortawesome/fontawesome-free-solid": "^5.0.13",
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.18",
+    "font-awesome": "^4.7.0",
+    "react-icons": "^4.4.0"
+  }
 }
