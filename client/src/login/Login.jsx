@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate, useHistory } from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
 require("../style/login.css")
+// require("")
 
 
 const Login = () => {
@@ -69,7 +70,8 @@ const Login = () => {
 
 
             });
-
+             const userid = res.json()
+             console.log(userid);
 
             if (res.status == 200) {
                 // i think the below /home directory is that one which is present in login -> Home
@@ -82,9 +84,9 @@ const Login = () => {
             if (res.status == 402) {
                 alert("please fill the data ")
             }
-            if (res.status == 404) {
-                alert("please fillfffg the data ")
-            }
+            // if (res.status == 404) {
+            //     alert("please fill the data ")
+            // }
 
         } catch (error) {
             console.log(error);
@@ -118,7 +120,8 @@ const Login = () => {
 
                         <p className='Or_log'>--------or--------</p>
                         <GoogleLogin className='google'
-                            clientId="897223443783-1bqmg4ifk0id3mvenq5vccpp3b0mhmm1.apps.googleusercontent.com"
+                            // clientId= {process.env.GOOGLE_CLIENT_ID}
+                            clientId= "897223443783-1bqmg4ifk0id3mvenq5vccpp3b0mhmm1.apps.googleusercontent.com"
                             buttonText="Login"
                             onSuccess={responseGoogle}
                             onFailure={responseGoogle}

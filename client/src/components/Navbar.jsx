@@ -45,7 +45,7 @@ function Navbar() {
                     <div className="header_right">
                         <li style={{ listStyle: "none" }}>
                             <NavLink exact to="/home"> Home </NavLink>
-                            <NavLink exact to="/Goverment_plan">Govt Plan</NavLink>
+                            <a href='https://agricoop.nic.in/en/ministry-major-schemes'>Govt plan</a>
                             <NavLink exact to="/About">My Profile</NavLink>
                             <NavLink exact to="/Contactus">Contact Us</NavLink>
                         </li>

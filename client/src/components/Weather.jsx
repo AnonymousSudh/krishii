@@ -9,16 +9,13 @@ function Weather() {
     const [cityy, setcityy] = useState("");
     // const [city, setcity] = useState("");
 
-    
-    // const getcityfromserver =()=>{
 
 
-    // }
 
-    const calAboutPage = async () => {
+    const getcityfromserver = async () => {
 
 
-        try {
+        // try {
             const res = await fetch('/weather', {
                 method: "GET",
                 headers: {
@@ -30,44 +27,75 @@ function Weather() {
 
             const dataa = await res.json();
             const city = dataa.address;
+            // var cityy = city;
+            setcityy(city)
 
+                  // console.log("hello2");
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=b47eaedf9047216f8f8ccccb6cf674b5`
+        // console.log("hello3");
+        const data = await fetch(url);
+        const json_data = await data.json();
+        // console.log(data);
 
-            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=b47eaedf9047216f8f8ccccb6cf674b5`
-                const data = await fetch(url);
-                const json_data = await data.json();
-                // console.log(data);
+        // setdata(json_data);
+        // console.log(dataa);
+        const address = json_data.name;
+        const temp = json_data.main.temp - 273.15;
+        const temp2 = Math.round(temp * 10);
+        const country = json_data.sys.country
+        document.getElementsByClassName('curr_address')[0].innerHTML = address
+        document.getElementsByClassName('temp')[0].innerHTML = Math.round(temp)
+        document.getElementsByClassName('temp')[0].innerHTML = temp2 / 10
+        document.getElementsByClassName('country')[0].innerHTML = country
+            
+            // console.log("hello");
+
+        // } catch (err) {
+            // console.log(err);
+            // history.push('/')
+        // }
         
-                // setdata(json_data);
-                // console.log(dataa);
-                const address = json_data.name;
-                const temp = json_data.main.temp - 273.15;
-                const temp2 = Math.round(temp * 10);
-                const country = json_data.sys.country
-                document.getElementsByClassName('curr_address')[0].innerHTML = address
-                document.getElementsByClassName('temp')[0].innerHTML = Math.round(temp)
-                document.getElementsByClassName('temp')[0].innerHTML = temp2 / 10
-                document.getElementsByClassName('country')[0].innerHTML = country
-                // console.log(json_data.main.temp);
+    }
+    const fetch_wether = async () => {
+        // localStorage.setItem("city" , cityy)
 
-        } catch (err) {
-            console.log(err);
-            history.push('/')
-        }
+
+        // console.log("hello2");
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityy}&appid=b47eaedf9047216f8f8ccccb6cf674b5`
+        // console.log("hello3");
+        const data = await fetch(url);
+        const json_data = await data.json();
+        // console.log(data);
+
+        // setdata(json_data);
+        // console.log(dataa);
+        const address = json_data.name;
+        const temp = json_data.main.temp - 273.15;
+        const temp2 = Math.round(temp * 10);
+        const country = json_data.sys.country
+        document.getElementsByClassName('curr_address')[0].innerHTML = address
+        document.getElementsByClassName('temp')[0].innerHTML = Math.round(temp)
+        document.getElementsByClassName('temp')[0].innerHTML = temp2 / 10
+        document.getElementsByClassName('country')[0].innerHTML = country
+        // console.log(json_data.main.temp);
+
+    }
+    const setcityandfetchweather = async (e) => {
+        setcityy(e.target.value);
+        fetch_wether();
+
 
     }
 
     useEffect(() => {
-        // getcityfromserver();
-        calAboutPage();
-        // city[];
-        // fetch_data();
-    })
+        getcityfromserver();
+    },[])
 
 
 
     return (<>
         <div className='weather'>
-            <input type="text" className='city_name' value={cityy} onChange={(e) => setcityy(e.target.value)} /><br />
+            <input type="text" className='city_name' value={cityy} onChange={setcityandfetchweather} /><br />
             <div className='temp_box'>
 
                 <h1 className='temp'>{ }</h1>
@@ -78,7 +106,6 @@ function Weather() {
                 <h3>,</h3>
                 <h3 className='country'>Ind</h3>
             </div>
-            {/* <button className='weather_btn'  >Update Weather</button> */}
         </div>
 
     </>

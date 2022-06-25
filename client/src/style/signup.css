@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
   }  
+  /* .main{
+    z-index: 21;
+  } */
   .main_header{
     margin: 0;
       padding: 0;
@@ -47,6 +50,8 @@
       font-weight: 300;
       font-size: 50px;
     }
+
+
 
   /* input{
         display: block;

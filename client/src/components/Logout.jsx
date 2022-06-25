@@ -20,6 +20,8 @@ function Logout() {
         // console.log(res.status);
               if(res.status ===200){
                 // alert("hello")
+                localStorage.removeItem("variety_id")
+                localStorage.removeItem("crop_id")
                 history.push('/')
     
             }

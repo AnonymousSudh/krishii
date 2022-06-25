@@ -5,7 +5,7 @@ const nodemailer = require("nodemailer")
 
 
 router.post('/signup_email', async (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
 
     try {
         const { name, email, password, address, phoneno } = req.body;
@@ -15,6 +15,7 @@ router.post('/signup_email', async (req, res) => {
         const lengh= otp.length;
 
         if(lengh ==3){
+
             otp = "0"+otp
         }
         
@@ -65,6 +66,7 @@ router.post('/signup_email', async (req, res) => {
                     }
     
                     const info = await transporter.sendMail(options);
+                    
                     console.log(info);
                     if(info){
                        
@@ -111,9 +113,14 @@ router.post('/validate_otp' ,async(req,res)=>{
 
         if(validate){
 
-
-            const update = await userList.updateMany(validate,
+            // db.detail.update( { "Color": "white" }, { $unset: { "Model": " " }} )
+            const update = await userList.update(validate,
                 [
+                    {
+                        $set: {
+                          "otp": ""
+                        }
+                      },
                     {
                         "$addFields": { "password": password }
                     }
