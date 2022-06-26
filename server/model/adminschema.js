@@ -1,6 +1,6 @@
 const  mongoose  = require("mongoose");
 
-const conn = require("../db/connection")
+// const conn = require("../db/connection")
 
 const feedback = new mongoose.Schema({
     name:{
@@ -12,6 +12,6 @@ const feedback = new mongoose.Schema({
 
 // user_table will be a collection name  in the login databae inside krishi project
 // loginSchema is the schema of our data which we want to send in the usertable collection.
-const feedback_list = conn.adminn.model("feedback_lisst", feedback);
+const feedback_list = new mongoose.model("feedback_lisst", feedback);
 
 module.exports = feedback_list;

@@ -1,34 +1,24 @@
 const mongoose = require("mongoose");
 // const express = require("express")
+// const admin_crop_list = require("../model/admin_crop_listingschema")
+// const admin_varietywithcropid_list = require("../model/admin_crop_varietyschema")
+// const userschema= require("../model/userschema")
 
-const conn = require("../db/connection")
+
+// const conn = require("../db/connection")
  
 const upload_variety = new mongoose.Schema({
 
-    variety_list: [
+    crop_id: { type: mongoose.Schema.Types.ObjectId, ref:"crop_list"  },
+    variety_listt: [
         {
-            variety:
-            {
-
-                type: String
-            }
+            variety: String
+            
         }
     ],
-    crop_id: { type: mongoose.Schema.Types.ObjectId, ref:"crop_list" ,require: true }
 
-
-
-    // tokens:[
-    //     {
-    //         token:{
-
-    //             type:String,
-    //             required:true
-    //         }
-    //     }
-    // ]
 })
 
-const uploadVariey = conn.adminn.model("variety_list", upload_variety)
+const uploadVariey = new mongoose.model("variety_list", upload_variety)
 
 module.exports = uploadVariey

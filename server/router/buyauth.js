@@ -4,6 +4,8 @@ require('../db/connection');
 const sellcrop = require("../model/sell_crop_schema")
 const admin_crop_list = require("../model/admin_crop_listingschema")
 const admin_varietywithcropid_list = require("../model/admin_crop_varietyschema")
+const userschema = require("../model/userschema")
+
 
 
 
@@ -12,10 +14,25 @@ const admin_varietywithcropid_list = require("../model/admin_crop_varietyschema"
 
 router.get('/getallcropdata', async (req, res) => {
     try {
-        // .populate("crop_name_id")
-        const buy_data = await sellcrop.findOne()
-        buy_data.populated("variety_id.variety")
+        // .populate("crop_name_id").populate("seller_id")
+        // .populate("seller_id", "name email address phoneno ").populate("variety_id")
+        const buy_data = await sellcrop.find().populate("crop_name_id").populate("seller_id")
+
+        // console.log();
+
         console.log(buy_data);
+        const trail = await admin_varietywithcropid_list.findOne({crop_id: "62b6f6d82d96449b0162d498"})
+        console.log(trail);
+
+        // .populate(
+        //     path: 'map_data._id',
+        //     model: 'location'
+        //     select:['nameLocation','geoPoints','count'],
+        //     ).exec();
+
+        // const getvariety = await sellcrop.find().populate("variety_id")
+
+        res.send(buy_data)
     } catch (error) {
         console.log(error);
         // variety_list
